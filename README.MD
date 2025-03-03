@@ -1,8 +1,9 @@
 # WebGoat 8: A deliberately insecure Web Application
 
-[![Build](https://github.com/WebGoat/WebGoat/actions/workflows/build.yml/badge.svg)](https://github.com/WebGoat/WebGoat/actions/workflows/build.yml)
+[![Pull request build](https://github.com/WebGoat/WebGoat/actions/workflows/pr_build.yml/badge.svg?branch=develop)](https://github.com/WebGoat/WebGoat/actions/workflows/pr_build.yml)
 [![Coverage Status](https://coveralls.io/repos/WebGoat/WebGoat/badge.svg?branch=develop&service=github)](https://coveralls.io/github/WebGoat/WebGoat?branch=master)
 [![Codacy Badge](https://api.codacy.com/project/badge/b69ee3a86e3b4afcaf993f210fccfb1d)](https://www.codacy.com/app/dm/WebGoat)
+[![java-jdk](https://img.shields.io/badge/java%20jdk-16-green.svg)](https://jdk.java.net/)
 [![OWASP Labs](https://img.shields.io/badge/owasp-lab%20project-f7b73c.svg)](https://www.owasp.org/index.php/OWASP_Project_Inventory#tab=Labs_Projects)
 [![GitHub release](https://img.shields.io/github/release/WebGoat/WebGoat.svg)](https://github.com/WebGoat/WebGoat/releases/latest)
 [![Gitter](https://badges.gitter.im/OWASPWebGoat/community.svg)](https://gitter.im/OWASPWebGoat/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
@@ -29,6 +30,8 @@ first thing that all hackers claim.*
 
 # Installation instructions:
 
+For more details check [the Contribution guide](/CONTRIBUTING.md)
+
 ## 1. Run using Docker
 
 Every release is also published on [DockerHub](https://hub.docker.com/r/webgoat/goatandwolf).
@@ -37,7 +40,7 @@ The easiest way to start WebGoat as a Docker container is to use the all-in-one 
 
 ```shell
 
-docker run -it -p 127.0.0.1:80:8888 -p 127.0.0.1:8080:8080 -p 127.0.0.1:9090:9090 -e TZ=Europe/Amsterdam webgoat/goatandwolf:v8.2.1
+docker run -it -p 127.0.0.1:80:8888 -p 127.0.0.1:8080:8080 -p 127.0.0.1:9090:9090 -e TZ=Europe/Amsterdam webgoat/goatandwolf:v8.2.2
 ```
 
 The landing page will be located at: http://localhost  
@@ -54,8 +57,8 @@ WebWolf will be located at: http://localhost:9090/WebWolf
 Download the latest WebGoat and WebWolf release from [https://github.com/WebGoat/WebGoat/releases](https://github.com/WebGoat/WebGoat/releases)
 
 ```shell
-java -Dfile.encoding=UTF-8 -jar webgoat-server-8.2.1.jar [--server.port=8080] [--server.address=localhost] [--hsqldb.port=9001]
-java -Dfile.encoding=UTF-8 -jar webwolf-8.2.1.jar [--server.port=9090] [--server.address=localhost] [--hsqldb.port=9001]
+java -Dfile.encoding=UTF-8 -jar webgoat-server-8.2.2.jar [--server.port=8080] [--server.address=localhost] [--hsqldb.port=9001]
+java -Dfile.encoding=UTF-8 -jar webwolf-8.2.2.jar [--server.port=9090] [--server.address=localhost] [--hsqldb.port=9001]
 ```
 
 WebGoat will be located at: http://localhost:8080/WebGoat and   
@@ -65,7 +68,7 @@ WebWolf will be located at: http://localhost:9090/WebWolf (change ports if neces
 
 ### Prerequisites:
 
-* Java 15
+* Java 16
 * Maven > 3.2.1
 * Your favorite IDE
 * Git, or Git support in your IDE
@@ -106,7 +109,7 @@ For instance running as a jar on a Linux/macOS it will look like this:
 ```Shell
 export EXCLUDE_CATEGORIES="CLIENT_SIDE,GENERAL,CHALLENGE"
 export EXCLUDE_LESSONS="SqlInjectionAdvanced,SqlInjectionMitigations"
-java -jar webgoat-server/target/webgoat-server-v8.2.0-SNAPSHOT.jar
+java -jar webgoat-server/target/webgoat-server-v8.2.2-SNAPSHOT.jar
 ```
 Or in a docker run it would (once this version is pushed into docker hub) look like this:
 ```Shell
